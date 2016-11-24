@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :users
+  devise_for :admins
+
+  root 'home#index'
+  get 'home/index'
+  get 'apidoc', to: "application#apidoc"
+
+
+  
+  namespace :admin do
+    get 'home/index'
+    get 'home/admins'
+    get 'home/dashboard'
+    root :to => "home#index"
+    resources :admins do
+    end
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
