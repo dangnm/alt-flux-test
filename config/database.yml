@@ -1,0 +1,39 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  host: localhost
+  database: alt_flux_dev
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  host: localhost
+  database: alt_flux_test
+  username: postgres
+  password: postgres
+
+# production:
+#   <<: *default
+#   host: localhost
+#   database: alt_flux_prod
+#   username: postgres
+#   password: postgres
+
+# staging: host: localhost
+#   <<: *default
+#   database: alt_flux_stg
+#   username: postgres
+#   password: postgres
